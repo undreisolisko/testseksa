@@ -1,0 +1,131 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+#miner-sprite {
+  position: absolute;
+  width: 180px; /* уменьшенный размер */
+  height: 180px;
+  left: 10px;
+  bottom: 10px;
+  background: url('assets/miner-sprite.png') no-repeat;
+  background-size: 14760px 180px; /* вся ширина спрайта после уменьшения */
+  animation: minerAnim 3s steps(82) infinite;
+  z-index: 2;
+}
+
+@keyframes minerAnim {
+  from { background-position: 0 0; }
+  to   { background-position: -14760px 0; }
+}
+
+#miner-text {
+  position: absolute;
+  left: 10px;
+  bottom: 200px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  z-index: 3;
+}
+
+#invetary-sprite {
+  position: absolute;
+  width: 216px; /* кадр в 2.5 раза меньше */
+  height: 216px;
+  right: 10px;
+  top: 10px;
+  background: url('assets/invetary-sprite.png') no-repeat;
+  background-size: 4752px 216px; /* вся ширина спрайта после уменьшения */
+  animation: invetaryAnim 3s steps(21) forwards;
+  z-index: 3;
+}
+
+@keyframes invetaryAnim {
+  from { background-position: 0 0; }
+  to   { background-position: -4536px 0; }
+}
+
+#inventory-items {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: repeat(3, auto); /* 3 строки */
+  grid-template-columns: 1fr;           /* 1 колонка */
+  row-gap: 12px;
+  max-height: 200px;
+}
+
+.inventory-item {
+  display: flex;
+  flex-direction: row;      /* Рядом, а не столбиком */
+  align-items: center;      /* По вертикали по центру */
+  gap: 6px;                 /* Расстояние между иконкой и числом */
+  color: white;
+  font-size: 14px;
+}
+
+.inventory-item img {
+  width: 40px;
+  height: 40px;
+}
+
+#falling-container {
+  position: absolute;
+  top: 0;
+  left: 33%;
+  width: 34%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.falling {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+#pickaxe {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  display: none;
+  z-index: 4;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+.swing {
+  transform: rotate(0deg) scale(1.3);
+}
