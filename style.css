@@ -4,126 +4,65 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body, html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: sans-serif;
 }
-
-#game {
+#game-container {
   position: relative;
   width: 100vw;
   height: 100vh;
+  background: url('assets/stone_wall.png') no-repeat center center / cover;
 }
 
-#background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
+/* Miner sprite — адаптивный */
 #miner-sprite {
   position: absolute;
-  width: 300px; /* уменьшенный размер */
-  height: 300px;
-  left: 10px;
-  bottom: 10px;
+  width: 20vw;
+  aspect-ratio: 1 / 1;
+  left: 2vw;
+  bottom: 2vw;
   background: url('assets/miner-sprite.png') no-repeat;
-  background-size: 24600px 300px; /* вся ширина спрайта после уменьшения */
-  animation: minerAnim 3s steps(82) infinite;
+  background-size: 49200px 100%;
+  animation: minerAnim 2s steps(81) infinite;
   z-index: 2;
 }
 
-@keyframes minerAnim {
-  from { background-position: 0 0; }
-  to   { background-position: -24600px 0; }
-}
-
-#miner-text {
-  position: absolute;
-  left: 10px;
-  bottom: 320px;
-  color: white;
-  background: rgba(0,0,0,0.6);
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 16px;
-  z-index: 3;
-}
-
+/* Inventory sprite — адаптивный, проигрывается 1 раз */
 #invetary-sprite {
   position: absolute;
-  width: 360px; /* кадр в 2.5 раза меньше */
-  height: 360px;
-  right: 10px;
-  top: 10px;
+  width: 22vw;
+  aspect-ratio: 1 / 1;
+  right: 2vw;
+  top: 2vw;
   background: url('assets/invetary-sprite.png') no-repeat;
-  background-size: 7920px 360px; /* вся ширина спрайта после уменьшения */
-  animation: invetaryAnim 3s steps(21) forwards;
+  background-size: 19008px 100%;
+  animation: invetaryAnim 2s steps(21) forwards;
   z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5vw;
+  padding: 1vw;
 }
 
+/* Falling objects */
+.falling-object {
+  position: absolute;
+  width: 8vw;
+  height: auto;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+/* Keyframes */
+@keyframes minerAnim {
+  from { background-position: 0 0; }
+  to   { background-position: -49200px 0; }
+}
 @keyframes invetaryAnim {
   from { background-position: 0 0; }
-  to   { background-position: -7560px 0; }
-}
-
-#inventory-items {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 3;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  max-width: 200px;
-}
-
-.inventory-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  font-size: 14px;
-}
-
-.inventory-item img {
-  width: 40px;
-  height: 40px;
-}
-
-#falling-container {
-  position: absolute;
-  top: 0;
-  left: 33%;
-  width: 34%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.falling {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  z-index: 1;
-  pointer-events: auto;
-}
-
-#pickaxe {
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  display: none;
-  z-index: 4;
-  transform: rotate(-45deg);
-  transition: transform 0.2s ease;
-}
-
-.swing {
-  transform: rotate(0deg) scale(1.3);
+  to   { background-position: -18144px 0; }
 }

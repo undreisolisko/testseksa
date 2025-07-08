@@ -1,23 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="manifest.json" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miner Game</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miner Game</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="game">
-        <img src="assets/stone_wall.png" id="background" />
-        <div id="miner-text">Нажимай на падающие предметы!</div>
-        <div id="miner-sprite"></div>
-        <div id="invetary-sprite"></div>
-        <div id="inventory-items"></div>
-        <div id="falling-container"></div>
-        <img id="pickaxe" src="assets/pickaxe.png" />
-    </div>
-    <script src="script.js"></script>
+  <div id="game-container">
+    <div id="miner-sprite"></div>
+    <div id="invetary-sprite"></div>
+    <img src="assets/button1.png" class="falling-object" />
+    <img src="assets/button2.png" class="falling-object" />
+    <img src="assets/ring.png" class="falling-object" />
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
