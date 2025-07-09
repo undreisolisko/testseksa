@@ -1,23 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="manifest.json" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miner Game</title>
-    <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miner Game</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="game">
-        <img src="assets/stone_wall.png" id="background" />
-        <div id="miner-text">Нажимай на падающие предметы!</div>
-        <div id="miner-sprite"></div>
-        <div id="invetary-sprite"></div>
-        <div id="inventory-items"></div>
-        <div id="falling-container"></div>
-        <img id="pickaxe" src="assets/pickaxe.png" />
+  <div id="game">
+    <img src="assets/stone_wall.png" id="background" />
+
+    <div id="miner-text">Нажимай на падающие предметы!</div>
+
+    <!-- ✅ Обёртка добавлена для масштабирования шахтёра -->
+    <div id="miner-sprite-wrapper">
+      <div id="miner-sprite"></div>
     </div>
-    <script src="script.js"></script>
+    
+<div id="invetary-sprite-wrapper">
+  <div id="invetary-sprite"></div>
+</div>
+
+    <div id="inventory-items"></div>
+    <div id="falling-container"></div>
+    <img id="pickaxe" src="assets/pickaxe.png" />
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
